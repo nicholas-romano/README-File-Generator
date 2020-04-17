@@ -1,10 +1,19 @@
-## Title
+# Title
 
 ![Screenshot of Project Example](https://octodex.github.com/images/yaktocat.png)
 
 ## Description
 
 Description of the project
+
+## Table of Contents
+
+* [Installation](#installation)
+* [Usage](#usage)
+* [Credits](#credits)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
 
 ## Installation
 
@@ -16,20 +25,20 @@ Step-by-step description of how to get the development environment running.
 
 ## Usage
 
-Example usage 1
-Example usage 2
+Example usage 1 \
+Example usage 2 \
 
 ## Credits
 
-Collaborator 1 Name [Collaborator 1 GitHub Profile Link](https://github.com/Collaborator1name)
-Collaborator 2 Name [Collaborator 2 GitHub Profile Link](https://github.com/Collaborator2name)
-Collaborator 3 Name [Collaborator 3 GitHub Profile Link](https://github.com/Collaborator3name)
+Collaborator 1 Name [Collaborator 1 GitHub Profile Link](https://github.com/Collaborator1name) \
+Collaborator 2 Name [Collaborator 2 GitHub Profile Link](https://github.com/Collaborator2name) \
+Collaborator 3 Name [Collaborator 3 GitHub Profile Link](https://github.com/Collaborator3name) \
 
 Third Party site 1, [Third Party Site Link](http://example.com)
 
 ## License
 
-`&copy`CompanyName
+`&copy;`CompanyName
 
 Project Title is [License Name](http://licensenamelink.com) licensed.
 
