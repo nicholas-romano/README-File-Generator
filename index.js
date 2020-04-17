@@ -96,7 +96,7 @@ inquirer.prompt([
             license,
             guidelines,
             tests
-         } = answers;
+        } = answers;
 
     //git hub username:
     console.log(github_username);
@@ -162,6 +162,12 @@ inquirer.prompt([
 
 });
 
+function createFileContent() {
+
+    //README file content goes here:
+
+}
+
 function createBadge(type, title) {
     return `https://img.shields.io/badge/${type}-${title}-blue`;
 }
@@ -179,7 +185,6 @@ function getEmailAddress(github_userdata) {
     }
 
     return "User profile email is unavailable";
-
 
 }
 
