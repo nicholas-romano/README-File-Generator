@@ -151,13 +151,13 @@ function createFileContent(github_username, project_title, project_image, descri
     }
 
     if (project_title != "" && license !== "None" && dependencies !== "") {
-        fileContent += `# ${project_title} ${licenseBadge} ${dependencyBadges} \r\r\n`;
+        fileContent += `# ${project_title} &middot; ${licenseBadge} ${dependencyBadges} \r\r\n`;
     }
     else if (project_title != "" && license !== "None") {
-        fileContent += `# ${project_title} ${licenseBadge} \r\r\n`;
+        fileContent += `# ${project_title} &middot; ${licenseBadge} \r\r\n`;
     }
     else if (project_title != "" && dependencies !== "") {
-        fileContent += `# ${project_title} ${dependencyBadges} \r\r\n`;
+        fileContent += `# ${project_title} &middot; ${dependencyBadges} \r\r\n`;
     }
     else if (project_title !== "") {
         fileContent += `# ${project_title} \r\r\n`;
@@ -202,7 +202,7 @@ function createFileContent(github_username, project_title, project_image, descri
     }
 
     if (copyright != "") {
-        fileContent += `${copyright} \r\r\n`;
+        fileContent += `&copy;${copyright} \r\r\n`;
     }
 
     if (tests != "") {
@@ -254,9 +254,9 @@ function createProjectImage(project_title, project_image) {
 function getLicenseBadge(license) {
     //create license badge:
     license = license.split(" ").join("%20");
-    license.trim();
     const licenseBadge = createBadge("license", license);
-    return licenseBadge;
+    const licenseBadgeImg = `[license](${licenseBadge})`;
+    return licenseBadgeImg;
 }
 
 function getDependencyBadges(dependencies) {
@@ -273,7 +273,8 @@ function getDependencyBadges(dependencies) {
         const version = dependency.substr(seperator + 1);
         let dependencyBadge = createBadge(type, version);
         dependencyBadge = dependencyBadge.replace(/" "/g, "");
-        dependencyBadgesArray.push(dependencyBadge);
+        const dependencyBadgeImg = `[${type}](${dependencyBadge})`;
+        dependencyBadgesArray.push(dependencyBadgeImg);
     }
 
     let dependencyBadgesStr = dependencyBadgesArray.toString();
@@ -323,31 +324,31 @@ function setUpTableOfContents(fileContent, installation, usage, collaborators, l
     let table_of_contents = [];
 
     if (installation !== "") {
-        table_of_contents.push(`## [Installation](#installation)`);
+        table_of_contents.push(`* [Installation](#installation)`);
     }
 
     if (usage !== "") {
-        table_of_contents.push(`## [Usage](#usage)`);
+        table_of_contents.push(`* [Usage](#usage)`);
     }
 
     if (collaborators !== "") {
-        table_of_contents.push(`## [Credits](#credits)`);
+        table_of_contents.push(`* [Credits](#credits)`);
     }
 
     if (license !== "") {
-        table_of_contents.push(`## [License](#license)`);
+        table_of_contents.push(`* [License](#license)`);
     }
 
     if (guidelines !== "") {
-        table_of_contents.push(`## [Contributing](#contributing)`);
+        table_of_contents.push(`* [Contributing](#contributing)`);
     }
 
     if (tests !== "") {
-        table_of_contents.push(`## [Tests](#tests)`);
+        table_of_contents.push(`* [Tests](#tests)`);
     }
 
     if (github_username !== "") {
-        table_of_contents.push(`## [Questions](#questions)`);
+        table_of_contents.push(`* [Questions](#questions) \r\n`);
     }
 
     fileContent += `## Table of Contents \r\n`;
