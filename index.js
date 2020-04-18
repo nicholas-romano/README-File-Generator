@@ -102,7 +102,7 @@ inquirer.prompt([
         const project_title = "Yakto Cat";
         const project_image = "https://octodex.github.com/images/yaktocat.png";
         const description = "Yakto Cat can teach you karate. But don't anger him!";
-        const dependencies = "node 16.13.1, axios 7.4.5";
+        const dependencies = "node16.13.1, axios7.4.5";
         const installation = "1. warm up with punches and kicks 2. Practice fighting Yaktocat";
         const usage = "Use your training wherever danger strikes";
         const collaborators = "Yaktocat, Jackie Chan";
@@ -275,9 +275,10 @@ function getDependencyBadges(dependencies) {
     for (let i = 0; i < dependencies.length; i++) {
         let dependency = dependencies[i].trim();
         dependency = dependency.trimLeft();
-        const seperator = dependency.indexOf(" ");
+        let firstDigit = dependency.match(/\d/); // will give you the first digit in the string
+        let seperator = dependency.indexOf(firstDigit);
         const type = dependency.substr(0, seperator);
-        const version = dependency.substr(seperator + 1);
+        const version = dependency.substr(seperator);
         let dependencyBadge = createBadge(type, version);
         dependencyBadge = dependencyBadge.replace(/" "/g, "");
         dependencyBadgesArray.push(dependencyBadge);
