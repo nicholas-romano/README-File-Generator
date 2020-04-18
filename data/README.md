@@ -1,4 +1,4 @@
-# Yakto Cat &middot; [license](https://img.shields.io/badge/license-Apache%202.0-blue) [node](https://img.shields.io/badge/node-16.13.1-blue) [axios](https://img.shields.io/badge/axios-7.4.5-blue) 
+# Yakto Cat &middot; ![license](https://img.shields.io/badge/license-Apache%202.0-blue) ![node](https://img.shields.io/badge/node-16.13.1-blue) ![axios](https://img.shields.io/badge/axios-7.4.5-blue) 
 ![Yakto Cat](https://octodex.github.com/images/yaktocat.png) 
 ## Description 
 Yakto Cat can teach you karate. But don't anger him! 

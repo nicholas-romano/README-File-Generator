@@ -255,8 +255,7 @@ function getLicenseBadge(license) {
     //create license badge:
     license = license.split(" ").join("%20");
     const licenseBadge = createBadge("license", license);
-    const licenseBadgeImg = `[license](${licenseBadge})`;
-    return licenseBadgeImg;
+    return licenseBadge;
 }
 
 function getDependencyBadges(dependencies) {
@@ -273,8 +272,7 @@ function getDependencyBadges(dependencies) {
         const version = dependency.substr(seperator + 1);
         let dependencyBadge = createBadge(type, version);
         dependencyBadge = dependencyBadge.replace(/" "/g, "");
-        const dependencyBadgeImg = `[${type}](${dependencyBadge})`;
-        dependencyBadgesArray.push(dependencyBadgeImg);
+        dependencyBadgesArray.push(dependencyBadge);
     }
 
     let dependencyBadgesStr = dependencyBadgesArray.toString();
@@ -285,7 +283,7 @@ function getDependencyBadges(dependencies) {
 }
 
 function createBadge(type, title) {
-    return `https://img.shields.io/badge/${type}-${title}-blue`;
+    return `![${type}](https://img.shields.io/badge/${type}-${title}-blue)`;
 }
 
 function getEmailAddress(github_userdata) {
