@@ -226,7 +226,7 @@ function createFileContent(github_username, project_title, project_image, descri
         console.log("email: " + gitHubEmail + " profile image: " + gitHubProfileImage);
 
         fileContent += `## Questions \r\n`;
-        fileContent += `![GitHub Profile Image](${gitHubProfileImage}) \r\n [${gitHubEmail}](${gitHubEmail})`;
+        fileContent += `![GitHub Profile Image](${gitHubProfileImage}) \r\r\n ${gitHubEmail}`;
 
         console.log("fileContent " + fileContent);
 
