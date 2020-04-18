@@ -23,3 +23,6 @@ Youtube How-To fight karate videos
 &copy;Yaktocat 2020 
 ## Tests 
 Kick, punch, block! 
+## Questions 
+![GitHub Profile Image](https://avatars.githubusercontent.com/u/6642173?) 
+ [njr7romano@yahoo.com](njr7romano@yahoo.com)

@@ -218,18 +218,26 @@ function createFileContent(github_username, project_title, project_image, descri
         axios.get(github_query).then(function(github_userdata) {
 
         //user email address:
-        const gitHubEmail = getEmailAddress(github_userdata);
+        let gitHubEmail = getEmailAddress(github_userdata);
 
         //user profile image:
-        const gitHubProfileImage = getProfileImage(github_userdata);
+        let gitHubProfileImage = getProfileImage(github_userdata);
 
-        fileContent += `## Questions`;
-        fileContent += `${gitHubProfileImage} ${gitHubEmail}`;
+        console.log("email: " + gitHubEmail + " profile image: " + gitHubProfileImage);
 
-        });
+        fileContent += `## Questions \r\n`;
+        fileContent += `![GitHub Profile Image](${gitHubProfileImage}) \r\n [${gitHubEmail}](${gitHubEmail})`;
+
+        console.log("fileContent " + fileContent);
+
+        createFile(fileContent);
+
+        }); 
+    
     }
 
-    createFile(fileContent);
+   
+    
 
 }
 
