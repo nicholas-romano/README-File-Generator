@@ -194,15 +194,15 @@ function createFileContent(github_username, project_title, project_image, descri
 
     if (collaborators != "") {
         fileContent += `## Contributing \r\n`;
-        fileContent += `${collaborators} \r\n`;
+        fileContent += `* ${collaborators} \r\n`;
     }
 
     if (third_parties != "") {
-        fileContent += `${third_parties} \r\n`;
+        fileContent += `* ${third_parties} \r\n`;
     }
 
     if (copyright != "") {
-        fileContent += `&copy;${copyright} \r\r\n`;
+        fileContent += `* &copy;${copyright} \r\r\n`;
     }
 
     if (tests != "") {

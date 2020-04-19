@@ -18,9 +18,9 @@ Use your training wherever danger strikes
 ## License 
 Yakto Cat is Apache 2.0 licensed 
 ## Contributing 
-Yaktocat, Jackie Chan 
-Youtube How-To fight karate videos 
-&copy;Yaktocat 2020 
+* Yaktocat, Jackie Chan 
+* Youtube How-To fight karate videos 
+* &copy;Yaktocat 2020 
 ## Tests 
 Kick, punch, block! 
 ## Questions 
