@@ -3,7 +3,6 @@ var fs = require('fs');
 const axios = require("axios");
 
 inquirer.prompt([
-    /*
   {
     type: "input",
     name: "github_username",
@@ -42,7 +41,7 @@ inquirer.prompt([
   {
     type: "input",
     name: "collaborators",
-    message: "Enter collaborators, if any, with links to their GitHub profiles. Include the full http/https protocol extension for the links and seperate each third party with a comma:"
+    message: "Enter collaborators, if any, with links to their GitHub profiles. Include the full http/https protocol extension for each, separating them with a comma."
   },
   {
     type: "input",
@@ -80,40 +79,24 @@ inquirer.prompt([
     name: "tests",
     message: "Write test cases for your application here. Include any screenshot links if needed."
   }
-  */
+
 ]).then(function(answers) {
 
-
-    // let { github_username, 
-    //         project_title, 
-    //         project_image, 
-    //         description, 
-    //         dependencies, 
-    //         installation, 
-    //         usage,
-    //         collaborators, 
-    //         third_parties,
-    //         copyright, 
-    //         license,
-    //         guidelines,
-    //         tests
-    //     } = answers;
+    let { github_username, 
+            project_title, 
+            project_image, 
+            description, 
+            dependencies, 
+            installation, 
+            usage,
+            collaborators, 
+            third_parties,
+            copyright, 
+            license,
+            guidelines,
+            tests
+        } = answers;
     
-   
-        const github_username = "nicholas-romano";
-        const project_title = "Yakto Cat";
-        const project_image = "https://octodex.github.com/images/yaktocat.png";
-        const description = "Yakto Cat can teach you karate. But don't anger him!";
-        const dependencies = "node16.13.1, axios7.4.5";
-        const installation = "1. warm up with punches and kicks 2. Practice fighting Yaktocat";
-        const usage = "1. Use your training wherever danger strikes. 2. Be aware and alert";
-        const collaborators = "Nick Romano https://github.com/nicholas-romano, Samuel Guevara https://github.com/samuelguevara98";
-        const third_parties = "Youtube How-To fight karate videos https://www.youtube.com/watch?v=uB0fLc-wb5Y, Google: https://www.google.com";
-        const copyright = "Yaktocat 2020";
-        const license = "None";
-        const guidelines = "Proceed with caution";
-        const tests = "1. Kick 2. punch 3. block";
-
     createFileContent(github_username, project_title, project_image, description, dependencies, installation, usage, collaborators, third_parties, license, guidelines, copyright, tests);
 
 });
@@ -204,7 +187,7 @@ function createFileContent(github_username, project_title, project_image, descri
     if (guidelines != "") {
         let bulletList = createBulletList(guidelines);
         let convertedLinks = createLinks(bulletList);
-        fileContent += `${convertedLinks} \r\r\n`;
+        fileContent += `${convertedLinks} \r\n`;
     }
 
     if (copyright != "") {
@@ -215,7 +198,7 @@ function createFileContent(github_username, project_title, project_image, descri
         fileContent += `## Tests \r\n`;
         let convertedLinks = createLinks(tests);
         let stepList = createOrderedList(convertedLinks); 
-        fileContent += `${stepList} \r\r\n`;
+        fileContent += `${stepList} \r\n`;
     }
 
     github_username.trim();

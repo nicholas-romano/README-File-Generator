@@ -1,7 +1,7 @@
 # Yakto Cat &middot; ![node](https://img.shields.io/badge/node-16.13.1-blue) ![axios](https://img.shields.io/badge/axios-7.4.5-blue) 
 ![Yakto Cat](https://octodex.github.com/images/yaktocat.png) 
 ## Description 
-Yakto Cat can teach you karate. But don't anger him! 
+Takto Cat can teach you karate. But don't anger him! 
 ## Table of Contents 
 * [Installation](#installation) 
 * [Usage](#usage) 
@@ -13,7 +13,8 @@ Yakto Cat can teach you karate. But don't anger him!
  
 ## Installation 
 1.  warm up with punches and kicks  
-2.  Practice fighting Yaktocat 
+2.  Practice fighting Yaktocat  
+3.  Clean up the blood when done. 
  
 ## Usage 
 1.  Use your training wherever danger strikes.  
@@ -28,12 +29,15 @@ There is not a license for this application.
 * Youtube How-To fight karate videos [www.youtube.com/watch?v=uB0fLc-wb5Y](https://www.youtube.com/watch?v=uB0fLc-wb5Y) 
 * Google: [www.google.com](https://www.google.com) 
   
-Proceed with caution 
+* Attribute any third party assets 
+* test your code on all major browsers. 
+ 
 &copy;Yaktocat 2020 
 ## Tests 
 1.  Kick  
 2.  punch  
-3.  block 
+3.  block  
+4.  Drink Water 
  
 ## Questions 
 ![GitHub Profile Image](https://avatars.githubusercontent.com/u/6642173?) 
