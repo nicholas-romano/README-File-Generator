@@ -110,7 +110,7 @@ inquirer.prompt([
         const collaborators = "Nick Romano https://github.com/nicholas-romano, Samuel Guevara https://github.com/samuelguevara98";
         const third_parties = "Youtube How-To fight karate videos https://www.youtube.com/watch?v=uB0fLc-wb5Y, Google: https://www.google.com";
         const copyright = "Yaktocat 2020";
-        const license = "Apache 2.0";
+        const license = "None";
         const guidelines = "Proceed with caution";
         const tests = "1. Kick 2. punch 3. block";
 
@@ -126,13 +126,15 @@ function createFileContent(github_username, project_title, project_image, descri
     project_title.trim();
 
     license.trim();
-    let licenseBadge = "";
+    let licenseBadge;
+    let licenseLink;
     if (license !== "None") {
         licenseBadge = getLicenseBadge(license);
+        licenseLink = getLicenseLink(license);
     }
 
     dependencies.trim();
-    let dependencyBadges = "";
+    let dependencyBadges;
     if (dependencies !== "") {
         dependencyBadges = getDependencyBadges(dependencies);
     }
@@ -175,12 +177,15 @@ function createFileContent(github_username, project_title, project_image, descri
         fileContent += `## Usage \r\n`;
         let convertedLinks = createLinks(usage);
         let stepList = createOrderedList(convertedLinks);
-        fileContent += `${stepList} \r\r\n`;
+        fileContent += `${stepList} \r\n`;
     }
 
-    if (license != "") {
-        fileContent += `## License \r\n`;
-        fileContent += `${project_title} is ${license} licensed \r\r\n`;
+    fileContent += `## License \r\n`;
+    if (license != "None") {
+        fileContent += `${project_title} is [${license}](${licenseLink}) licensed \r\r\n`;
+    }
+    else {
+        fileContent += "There is not a license for this application. \r\r\n";
     }
 
     if (collaborators != "") {
@@ -196,15 +201,14 @@ function createFileContent(github_username, project_title, project_image, descri
         fileContent += `${convertedLinks} \r\n`;
     }
 
-    if (copyright != "") {
-        fileContent += `&copy;${copyright} \r\r\n`;
+    if (guidelines != "") {
+        let bulletList = createBulletList(guidelines);
+        let convertedLinks = createLinks(bulletList);
+        fileContent += `${convertedLinks} \r\r\n`;
     }
 
-    if (guidelines != "") {
-        fileContent += `## Guidelines \r\n`;
-        let convertedLinks = createLinks(guidelines);
-        let stepList = createOrderedList(convertedLinks);
-        fileContent += `${stepList} \r\r\n`;
+    if (copyright != "") {
+        fileContent += `&copy;${copyright} \r\r\n`;
     }
 
     if (tests != "") {
@@ -253,6 +257,40 @@ function createFile(fileContent) {
     console.log("README.md file created.");
 
   });
+
+}
+
+function getLicenseLink(license) {
+
+    let licenseLink;
+
+    switch(license) {
+        case "GNU AGPLv3":
+            licenseLink = "https://www.gnu.org/licenses/agpl-3.0.html";
+        break;
+        case "GNU GPLv3":
+            licenseLink = "https://www.gnu.org/licenses/gpl-3.0.html";
+        break;
+        case "GNU LGPLv3":
+            licenseLink = "https://www.gnu.org/licenses/lgpl-3.0.html";
+        break;
+        case "Mozilla Public 2.0":
+            licenseLink = "https://www.mozilla.org/en-US/MPL/2.0/";
+        break;
+        case "Apache 2.0":
+            licenseLink = "https://www.apache.org/licenses/LICENSE-2.0.html";
+        break;
+        case "MIT":
+            licenseLink = "https://choosealicense.com/licenses/mit/";
+        break;
+        case "Boost Software 1.0":
+            licenseLink = "http://zone.ni.com/reference/en-XX/help/373194E-01/cdaq-foss/boost-license-v-1-0/";
+        break;
+        case "The Unlicense":
+            licenseLink = "https://unlicense.org/";
+        break;
+    }
+    return licenseLink;
 
 }
 
@@ -355,7 +393,6 @@ function getDependencyBadges(dependencies) {
 
     for (let i = 0; i < dependencies.length; i++) {
         let dependency = dependencies[i].trim();
-        dependency = dependency.trimLeft();
         let firstDigit = dependency.match(/\d/); // will give you the first digit in the string
         let seperator = dependency.indexOf(firstDigit);
         const type = dependency.substr(0, seperator);
