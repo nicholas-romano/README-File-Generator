@@ -42,7 +42,7 @@ inquirer.prompt([
   {
     type: "input",
     name: "collaborators",
-    message: "Enter collaborators, if any, with links to their GitHub profiles. Seperate each with a comma:"
+    message: "Enter collaborators, if any, with links to their GitHub profiles. Include the full http/https protocol extension for the links and seperate each third party with a comma:"
   },
   {
     type: "input",
@@ -82,50 +82,37 @@ inquirer.prompt([
   }
   */
 ]).then(function(answers) {
-    /*
-    let { github_username, 
-            project_title, 
-            project_image, 
-            description, 
-            dependencies, 
-            installation, 
-            usage,
-            collaborators, 
-            third_parties,
-            copyright, 
-            license,
-            guidelines,
-            tests
-        } = answers;
-    */
+
+
+    // let { github_username, 
+    //         project_title, 
+    //         project_image, 
+    //         description, 
+    //         dependencies, 
+    //         installation, 
+    //         usage,
+    //         collaborators, 
+    //         third_parties,
+    //         copyright, 
+    //         license,
+    //         guidelines,
+    //         tests
+    //     } = answers;
+    
+   
         const github_username = "nicholas-romano";
         const project_title = "Yakto Cat";
         const project_image = "https://octodex.github.com/images/yaktocat.png";
         const description = "Yakto Cat can teach you karate. But don't anger him!";
         const dependencies = "node16.13.1, axios7.4.5";
         const installation = "1. warm up with punches and kicks 2. Practice fighting Yaktocat";
-        const usage = "Use your training wherever danger strikes";
-        const collaborators = "Yaktocat, Jackie Chan";
-        const third_parties = "Youtube How-To fight karate videos";
+        const usage = "1. Use your training wherever danger strikes. 2. Be aware and alert";
+        const collaborators = "Nick Romano https://github.com/nicholas-romano, Samuel Guevara https://github.com/samuelguevara98";
+        const third_parties = "Youtube How-To fight karate videos https://www.youtube.com/watch?v=uB0fLc-wb5Y, Google: https://www.google.com";
         const copyright = "Yaktocat 2020";
         const license = "Apache 2.0";
         const guidelines = "Proceed with caution";
-        const tests = "Kick, punch, block!";
-
-    //git hub username:
-    console.log(github_username);
-    console.log(project_title);
-    console.log(project_image);
-    console.log(description);
-    console.log(dependencies);
-    console.log(installation);
-    console.log(usage);
-    console.log(collaborators);
-    console.log(third_parties);
-    console.log(copyright);
-    console.log(license);
-    console.log(guidelines);
-    console.log(tests);
+        const tests = "1. Kick 2. punch 3. block";
 
     createFileContent(github_username, project_title, project_image, description, dependencies, installation, usage, collaborators, third_parties, license, guidelines, copyright, tests);
 
@@ -165,7 +152,7 @@ function createFileContent(github_username, project_title, project_image, descri
 
     project_image.trim();
     if (project_image != "") {
-        let projectImage = createProjectImage(project_title, project_image);
+        let projectImage = createImage(project_title, project_image);
         fileContent += `${projectImage} \r\r\n`;
     }
 
@@ -179,12 +166,16 @@ function createFileContent(github_username, project_title, project_image, descri
 
     if (installation != "") {
         fileContent += `## Installation \r\n`;
-        fileContent += `${installation} \r\r\n`;
+        let convertedLinks = createLinks(installation);
+        let stepList = createOrderedList(convertedLinks);
+        fileContent += `${stepList} \r\n`;
     }
 
     if (usage != "") {
         fileContent += `## Usage \r\n`;
-        fileContent += `${usage} \r\r\n`;
+        let convertedLinks = createLinks(usage);
+        let stepList = createOrderedList(convertedLinks);
+        fileContent += `${stepList} \r\r\n`;
     }
 
     if (license != "") {
@@ -194,20 +185,33 @@ function createFileContent(github_username, project_title, project_image, descri
 
     if (collaborators != "") {
         fileContent += `## Contributing \r\n`;
-        fileContent += `* ${collaborators} \r\n`;
+        let bulletList = createBulletList(collaborators);
+        let convertedLinks = createLinks(bulletList);
+        fileContent += `${convertedLinks} \r\n`;
     }
 
     if (third_parties != "") {
-        fileContent += `* ${third_parties} \r\n`;
+        let bulletList = createBulletList(third_parties);
+        let convertedLinks = createLinks(bulletList);
+        fileContent += `${convertedLinks} \r\n`;
     }
 
     if (copyright != "") {
-        fileContent += `* &copy;${copyright} \r\r\n`;
+        fileContent += `&copy;${copyright} \r\r\n`;
+    }
+
+    if (guidelines != "") {
+        fileContent += `## Guidelines \r\n`;
+        let convertedLinks = createLinks(guidelines);
+        let stepList = createOrderedList(convertedLinks);
+        fileContent += `${stepList} \r\r\n`;
     }
 
     if (tests != "") {
         fileContent += `## Tests \r\n`;
-        fileContent += `${tests} \r\r\n`;
+        let convertedLinks = createLinks(tests);
+        let stepList = createOrderedList(convertedLinks); 
+        fileContent += `${stepList} \r\r\n`;
     }
 
     github_username.trim();
@@ -236,9 +240,6 @@ function createFileContent(github_username, project_title, project_image, descri
     
     }
 
-   
-    
-
 }
 
 function createFile(fileContent) {
@@ -255,8 +256,88 @@ function createFile(fileContent) {
 
 }
 
-function createProjectImage(project_title, project_image) {
-    return `![${project_title}](${project_image})`;
+function createOrderedList(steps) {
+
+    let containsList = steps.search(/\d\./);
+
+    if (containsList !== -1) {
+        steps = steps.split(/\d\./);
+        let stepList = "";
+            for (let i = 0; i < steps.length; i++) {
+                if (steps[i] !== "") {
+                    stepList += `${i}. ${steps[i]} \n`;
+                }
+            } 
+            return stepList;
+    }
+    else {
+        return steps;
+    }
+    
+}
+
+function createBulletList(list) {
+
+    let containsList = list.search(",");
+    
+        if (containsList !== -1) {
+            list = list.split(",");
+            let bulletList = "";
+                for (let i = 0; i < list.length; i++) {
+                    let item = list[i].trim();
+                    if (item !== "") {
+                        bulletList += `* ${item} \n`;
+                    }
+                } 
+                return bulletList;
+        }
+        else {
+            return list;
+        }
+    
+}
+
+function createLinks(string) {
+
+    //search for a link:
+    let containsList = string.search("http");
+
+        if (containsList !== -1) {
+
+            let input = string.split(" ");
+            let newString = "";
+
+            for (let word in input) {
+                //console.log(input[word]);
+                if (input[word].indexOf("http") !== -1) {
+                    //link:
+                    let link = input[word];
+
+                    //find alias:
+                    let aliasStart = link.indexOf("//") + 2;
+                    console.log(aliasStart);
+                    let aliasEnd = link.length;
+                    console.log(aliasEnd);
+                    let alias = link.substring(aliasStart, aliasEnd);
+
+                    //add to new string:
+                    newString += `[${alias}](${link}) `;
+                }
+                else {
+                    //if not a link, add the word as is:
+                    newString += `${input[word]} `;
+                }
+            }
+            return newString;
+        }
+        else {
+            return string
+        }
+
+}
+
+function createImage(title, image_link) {
+    return `![${title}](${image_link})`;
 }
 
 function getLicenseBadge(license) {

@@ -12,17 +12,30 @@ Yakto Cat can teach you karate. But don't anger him!
 * [Questions](#questions) 
  
 ## Installation 
-1. warm up with punches and kicks 2. Practice fighting Yaktocat 
+1.  warm up with punches and kicks  
+2.  Practice fighting Yaktocat 
+ 
 ## Usage 
-Use your training wherever danger strikes 
+1.  Use your training wherever danger strikes.  
+2.  Be aware and alert 
+ 
 ## License 
 Yakto Cat is Apache 2.0 licensed 
 ## Contributing 
-* Yaktocat, Jackie Chan 
-* Youtube How-To fight karate videos 
-* &copy;Yaktocat 2020 
+* Nick Romano [github.com/nicholas-romano](https://github.com/nicholas-romano) 
+* Samuel Guevara [github.com/samuelguevara98](https://github.com/samuelguevara98) 
+  
+* Youtube How-To fight karate videos [www.youtube.com/watch?v=uB0fLc-wb5Y](https://www.youtube.com/watch?v=uB0fLc-wb5Y) 
+* Google: [www.google.com](https://www.google.com) 
+  
+&copy;Yaktocat 2020 
+## Guidelines 
+Proceed with caution 
 ## Tests 
-Kick, punch, block! 
+1.  Kick  
+2.  punch  
+3.  block 
+ 
 ## Questions 
 ![GitHub Profile Image](https://avatars.githubusercontent.com/u/6642173?) 
  njr7romano@yahoo.com
