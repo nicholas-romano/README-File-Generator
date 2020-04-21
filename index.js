@@ -82,7 +82,7 @@ inquirer.prompt([
 
 ]).then(function(answers) {
 
-    let { github_username, 
+    const { github_username, 
             project_title, 
             project_image, 
             description, 
@@ -96,7 +96,6 @@ inquirer.prompt([
             guidelines,
             tests
         } = answers;
-
 
     createFileContent(github_username, project_title, project_image, description, dependencies, installation, usage, collaborators, third_parties, license, guidelines, copyright, tests);
 
@@ -152,14 +151,16 @@ function createFileContent(github_username, project_title, project_image, descri
 
     if (installation != "") {
         fileContent += `## Installation \r\n`;
-        let convertedLinks = createLinks(installation);
+        let convertedImages = convertImages(installation);
+        let convertedLinks = createLinks(convertedImages);
         let stepList = createOrderedList(convertedLinks);
         fileContent += `${stepList} \r\n`;
     }
 
     if (usage != "") {
         fileContent += `## Usage \r\n`;
-        let convertedLinks = createLinks(usage);
+        let convertedImages = convertImages(usage);
+        let convertedLinks = createLinks(convertedImages);
         let stepList = createOrderedList(convertedLinks);
         fileContent += `${stepList} \r\n`;
     }
@@ -197,7 +198,8 @@ function createFileContent(github_username, project_title, project_image, descri
 
     if (tests != "") {
         fileContent += `## Tests \r\n`;
-        let convertedLinks = createLinks(tests);
+        let convertedImages = convertImages(tests);
+        let convertedLinks = createLinks(convertedImages);
         let stepList = createOrderedList(convertedLinks); 
         fileContent += `${stepList} \r\n`;
     }
@@ -215,12 +217,8 @@ function createFileContent(github_username, project_title, project_image, descri
         //user profile image:
         let gitHubProfileImage = getProfileImage(github_userdata);
 
-        console.log("email: " + gitHubEmail + " profile image: " + gitHubProfileImage);
-
         fileContent += `## Questions \r\n`;
         fileContent += `![GitHub Profile Image](${gitHubProfileImage}) \r\r\n ${gitHubEmail}`;
-
-        console.log("fileContent " + fileContent);
 
         createFile(fileContent);
 
@@ -236,8 +234,8 @@ function createFile(fileContent) {
 
     if (err) {
         return console.log(err);
-    }    
-
+    }
+    
     console.log("README.md file created.");
 
   });
@@ -274,6 +272,58 @@ function getLicenseLink(license) {
         break;
     }
     return licenseLink;
+
+}
+
+function convertImages(usage) {
+
+    const imageTypes = [".png", ".jpg", ".jpeg", ".gif", ".svg", ".tif", ".tiff", ".webp", ".raw", ".bmp"];
+
+    let newString = "";
+
+    let isImage = false;
+
+    let usageList = usage.split(" ");
+
+    //loop through usage:
+    for (let i = 0; i < usageList.length; i++) {
+
+            isImage = false;
+            
+            //loop through imageTypes:
+            for (let image in imageTypes) {
+
+                let imgExt = usageList[i].indexOf(imageTypes[image]);
+
+                if (imgExt !== -1) {
+
+                    //this is an image
+                    isImage = true;
+
+                    //find image:
+                    let imgStart = usageList[i].lastIndexOf(" ", imgExt);
+                    let imgEnd = imgExt + imageTypes[image].length;
+                    let img = usageList[i].substring(imgStart, imgEnd);
+                    img = img.trim();
+
+                    //find image alias:
+                    let aliasStart = usageList[i].lastIndexOf("/", imgExt);
+                    let aliasEnd = imgExt;
+                    let alias = usageList[i].substring(aliasStart + 1, aliasEnd);
+                    newString += createImage(alias, img);
+
+                }
+            
+            }
+
+            //this is not an image:
+            if (isImage === false) {
+                newString += `${usageList[i]} `;
+            }
+    
+    }
+
+    return newString;
 
 }
 
@@ -329,20 +379,18 @@ function createLinks(string) {
             let newString = "";
 
             for (let word in input) {
-                //console.log(input[word]);
+
                 if (input[word].indexOf("http") !== -1 && input[word].indexOf("![") === -1) {
                     //link:
                     let link = input[word];
 
                     //find alias:
                     let aliasStart = link.indexOf("//") + 2;
-                    console.log(aliasStart);
                     let aliasEnd = link.length;
-                    console.log(aliasEnd);
                     let alias = link.substring(aliasStart, aliasEnd);
 
                     //add to new string:
-                    newString += `[${alias}](${link}) `;
+                    newString += createImage(alias, link)
                 }
                 else {
                     //if not a link, add the word as is:
