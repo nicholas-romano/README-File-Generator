@@ -13,12 +13,12 @@ Yakto Cat can teach you karate. But don't anger him!
  
 ## Installation 
 1.  Intall npm and inquirer using the following command in your project folder: npm i inquirer axios  
-2.  To start the application, type node index.js ![project-terminal](images/project-terminal.png) 
+2.  To start the application, type node index.js ![project-terminal](/images/project-terminal.png) 
  
 ## Usage 
 1.  Use your training wherever danger strikes.  
 2.  Be aware and alert  
-3.  Eat plenty of protein. i.e. ![cheeseburger](images/cheeseburger.jpg) 
+3.  Eat plenty of protein. i.e. ![cheeseburger](/images/cheeseburger.jpg) 
  
 ## License 
 Yakto Cat is [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) licensed 
@@ -36,7 +36,7 @@ Yakto Cat is [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) lice
 ## Tests 
 1.  Kick  
 2.  punch  
-3.  block ![karate-kick](images/karate-kick.jpg) 
+3.  block ![karate-kick](/images/karate-kick.jpg) 
  
 ## Questions 
 ![GitHub Profile Image](https://avatars.githubusercontent.com/u/6642173?) 

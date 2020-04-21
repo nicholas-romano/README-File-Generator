@@ -318,6 +318,12 @@ function convertImages(usage) {
                     let imgStart = usageList[i].lastIndexOf(" ", imgExt);
                     let imgEnd = imgExt + imageTypes[image].length;
                     let img = usageList[i].substring(imgStart, imgEnd);
+
+                    if (img.indexOf("http") === -1) {
+                        //this is a relative path image:
+                        img = `/${img}`;
+                    }
+
                     img = img.trim();
 
                     //find image alias:
