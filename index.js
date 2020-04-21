@@ -96,7 +96,8 @@ inquirer.prompt([
             guidelines,
             tests
         } = answers;
-    
+
+
     createFileContent(github_username, project_title, project_image, description, dependencies, installation, usage, collaborators, third_parties, license, guidelines, copyright, tests);
 
 });
@@ -240,7 +241,6 @@ function createFile(fileContent) {
     console.log("README.md file created.");
 
   });
-
 }
 
 function getLicenseLink(license) {
@@ -330,7 +330,7 @@ function createLinks(string) {
 
             for (let word in input) {
                 //console.log(input[word]);
-                if (input[word].indexOf("http") !== -1) {
+                if (input[word].indexOf("http") !== -1 && input[word].indexOf("![") === -1) {
                     //link:
                     let link = input[word];
 

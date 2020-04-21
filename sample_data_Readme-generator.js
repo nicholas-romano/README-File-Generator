@@ -1,0 +1,13 @@
+const github_username = "nicholas-romano";
+        const project_title = "Yakto Cat";
+        const project_image = "https://octodex.github.com/images/yaktocat.png";
+        const description = "Yakto Cat can teach you karate. But don't anger him!";
+        const dependencies = "node16.13.1, axios7.4.5";
+        const installation = "1. warm up with punches and kicks 2. Practice fighting Yaktocat";
+        const usage = "1. Use your training wherever danger strikes. 2. Be aware and alert";
+        const collaborators = "Nick Romano https://github.com/nicholas-romano, Samuel Guevara https://github.com/samuelguevara98";
+        const third_parties = "Youtube How-To fight karate videos https://www.youtube.com/watch?v=uB0fLc-wb5Y, Google: https://www.google.com";
+        const copyright = "Yaktocat 2020";
+        const license = "None";
+        const guidelines = "Attribute any third party assets, test your code on all major browsers.";
+        const tests = "1. Kick 2. punch 3. block";
