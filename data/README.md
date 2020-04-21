@@ -1,4 +1,4 @@
-# Yakto Cat &middot; ![license](https://img.shields.io/badge/license-Apache%202.0-blue) ![node ](https://img.shields.io/badge/node -12.16.2 npm 7.1.0 axios 0.19.2 inquirer 7.1.0-blue) 
+# Yakto Cat &middot; ![license](https://img.shields.io/badge/license-Apache%202.0-blue) ![node](https://img.shields.io/badge/node-12.16.2-blue) ![npm](https://img.shields.io/badge/npm-7.1.0-blue) ![axios](https://img.shields.io/badge/axios-0.19.2-blue) ![inquirer](https://img.shields.io/badge/inquirer-7.1.0-blue) 
 ![Yakto Cat](https://octodex.github.com/images/yaktocat.png) 
 ## Description 
 Yakto Cat can teach you karate. But don't anger him! 
@@ -23,11 +23,11 @@ Yakto Cat can teach you karate. But don't anger him!
 ## License 
 Yakto Cat is [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) licensed 
 ## Contributing 
-* Nick Romano ![github.com/nicholas-romano](https://github.com/nicholas-romano)
-* Samuel Guevara ![github.com/samuelguevara98](https://github.com/samuelguevara98)
+* Nick Romano [github.com/nicholas-romano](https://github.com/nicholas-romano)
+* Samuel Guevara [github.com/samuelguevara98](https://github.com/samuelguevara98)
   
-* Youtube How-To fight karate videos ![www.youtube.com/watch?v=uB0fLc-wb5Y](https://www.youtube.com/watch?v=uB0fLc-wb5Y)
-* Google: ![www.google.com](https://www.google.com)
+* Youtube How-To fight karate videos [www.youtube.com/watch?v=uB0fLc-wb5Y](https://www.youtube.com/watch?v=uB0fLc-wb5Y)
+* Google: [www.google.com](https://www.google.com)
   
 * Attribute any third party assets 
 * test your code on all major browsers. 

@@ -3,99 +3,113 @@ var fs = require('fs');
 const axios = require("axios");
 
 inquirer.prompt([
-  {
-    type: "input",
-    name: "github_username",
-    message: "Enter your GitHub username:"
-  },
-  {
-    type: "input",
-    name: "project_title",
-    message: "Enter the title of your project:"
-  },
-  {
-    type: "input",
-    name: "project_image",
-    message: "Enter a project screenshot image link:"
-  },
-  {
-    type: "input",
-    name: "description",
-    message: "Enter a description of your project:"
-  },
-  {
-    type: "input",
-    name: "dependencies",
-    message: "List any third-party dependency packages that are needed for installation and their version numbers. Seperate each with a comma:"
-  },
-  {
-    type: "input",
-    name: "installation",
-    message: "Enter the step-by-step installation instructions:"
-  },
-  {
-    type: "input",
-    name: "usage",
-    message: "Enter Instructions and examples for use. Include links to screenshots as needed: "
-  },
-  {
-    type: "input",
-    name: "collaborators",
-    message: "Enter collaborators, if any, with links to their GitHub profiles. Include the full http/https protocol extension for each, separating them with a comma."
-  },
-  {
-    type: "input",
-    name: "third_parties",
-    message: "Enter third-party assets, if any, that require attribution. Include links to their primary web presence. Seperate each with a comma:"
-  },
-  {
-    type: "input",
-    name: "copyright",
-    message: "If this project is copyrighted, enter the copyright name here, if none exists, leave blank."
-  },
-  {
-    type: "list",
-    message: "Choose a license for the project:",
-    name: "license",
-    choices: [
-      "GNU AGPLv3",
-      "GNU GPLv3",
-      "GNU LGPLv3",
-      "Mozilla Public 2.0",
-      "Apache 2.0",
-      "MIT",
-      "Boost Software 1.0",
-      "The Unlicense",
-      "None"
-    ]
-  },
-  {
-    type: "input",
-    name: "guidelines",
-    message: "Enter guidelines, if any, on how you would like other developers to contribute to this project:"
-  },
-  {
-    type: "input",
-    name: "tests",
-    message: "Write test cases for your application here. Include any screenshot links if needed."
-  }
+//   {
+//     type: "input",
+//     name: "github_username",
+//     message: "Enter your GitHub username:"
+//   },
+//   {
+//     type: "input",
+//     name: "project_title",
+//     message: "Enter the title of your project:"
+//   },
+//   {
+//     type: "input",
+//     name: "project_image",
+//     message: "Enter a project screenshot image link:"
+//   },
+//   {
+//     type: "input",
+//     name: "description",
+//     message: "Enter a description of your project:"
+//   },
+//   {
+//     type: "input",
+//     name: "dependencies",
+//     message: "List any third-party dependency packages that are needed for installation and their version numbers. Seperate each with a comma:"
+//   },
+//   {
+//     type: "input",
+//     name: "installation",
+//     message: "Enter the step-by-step installation instructions:"
+//   },
+//   {
+//     type: "input",
+//     name: "usage",
+//     message: "Enter Instructions and examples for use. Include links to screenshots as needed: "
+//   },
+//   {
+//     type: "input",
+//     name: "collaborators",
+//     message: "Enter collaborators, if any, with links to their GitHub profiles. Include the full http/https protocol extension for each, separating them with a comma."
+//   },
+//   {
+//     type: "input",
+//     name: "third_parties",
+//     message: "Enter third-party assets, if any, that require attribution. Include links to their primary web presence. Seperate each with a comma:"
+//   },
+//   {
+//     type: "input",
+//     name: "copyright",
+//     message: "If this project is copyrighted, enter the copyright name here, if none exists, leave blank."
+//   },
+//   {
+//     type: "list",
+//     message: "Choose a license for the project:",
+//     name: "license",
+//     choices: [
+//       "GNU AGPLv3",
+//       "GNU GPLv3",
+//       "GNU LGPLv3",
+//       "Mozilla Public 2.0",
+//       "Apache 2.0",
+//       "MIT",
+//       "Boost Software 1.0",
+//       "The Unlicense",
+//       "None"
+//     ]
+//   },
+//   {
+//     type: "input",
+//     name: "guidelines",
+//     message: "Enter guidelines, if any, on how you would like other developers to contribute to this project:"
+//   },
+//   {
+//     type: "input",
+//     name: "tests",
+//     message: "Write test cases for your application here. Include any screenshot links if needed."
+//   }
 
 ]).then(function(answers) {
 
-    const { github_username, 
-            project_title, 
-            project_image, 
-            description, 
-            dependencies, 
-            installation, 
-            usage,
-            collaborators, 
-            third_parties,
-            copyright, 
-            license,
-            guidelines,
-            tests
-        } = answers;
+    // const { github_username, 
+    //         project_title, 
+    //         project_image, 
+    //         description, 
+    //         dependencies, 
+    //         installation, 
+    //         usage,
+    //         collaborators, 
+    //         third_parties,
+    //         copyright, 
+    //         license,
+    //         guidelines,
+    //         tests
+    //     } = answers;
+
+    const github_username = "nicholas-romano";
+    const project_title = "Yakto Cat";
+    const project_image = "https://octodex.github.com/images/yaktocat.png";
+    const description = "Yakto Cat can teach you karate. But don't anger him!";
+    const dependencies = "node 12.16.2, npm 7.1.0, axios 0.19.2, inquirer 7.1.0";
+    const installation = "1. Intall npm and inquirer using the following command in your project folder: npm i inquirer axios 2. To start the application, type node index.js images/project-terminal.png";
+    const usage = "1. Use your training wherever danger strikes. 2. Be aware and alert 3. Eat plenty of protein. i.e. images/cheeseburger.jpg";
+    const collaborators = "Nick Romano https://github.com/nicholas-romano, Samuel Guevara https://github.com/samuelguevara98";
+    const third_parties = "Youtube How-To fight karate videos https://www.youtube.com/watch?v=uB0fLc-wb5Y, Google: https://www.google.com";
+    const copyright = "Yaktocat 2020";
+    const license = "Apache 2.0";
+    const guidelines = "Attribute any third party assets, test your code on all major browsers.";
+    const tests = "1. Kick 2. punch 3. block images/karate-kick.jpg";
 
     createFileContent(github_username, project_title, project_image, description, dependencies, installation, usage, collaborators, third_parties, license, guidelines, copyright, tests);
 
@@ -390,7 +404,7 @@ function createLinks(string) {
                     let alias = link.substring(aliasStart, aliasEnd);
 
                     //add to new string:
-                    newString += createImage(alias, link)
+                    newString += createLink(alias, link);
                 }
                 else {
                     //if not a link, add the word as is:
@@ -407,6 +421,10 @@ function createLinks(string) {
 
 function createImage(title, image_link) {
     return `![${title}](${image_link})`;
+}
+
+function createLink(title, link) {
+    return `[${title}](${link})`;
 }
 
 function getLicenseBadge(license) {
@@ -426,8 +444,10 @@ function getDependencyBadges(dependencies) {
         let dependency = dependencies[i].trim();
         let firstDigit = dependency.match(/\d/); // will give you the first digit in the string
         let seperator = dependency.indexOf(firstDigit);
-        const type = dependency.substr(0, seperator);
-        const version = dependency.substr(seperator);
+        let type = dependency.substr(0, seperator);
+        type = type.trim();
+        let version = dependency.substr(seperator);
+        version = version.trim();
         let dependencyBadge = createBadge(type, version);
         dependencyBadge = dependencyBadge.replace(/" "/g, "");
         dependencyBadgesArray.push(dependencyBadge);
