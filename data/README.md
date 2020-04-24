@@ -5,7 +5,7 @@ Yakto Cat can teach you karate. But don't anger him!
 ## Table of Contents 
 * [Installation](#installation) 
 * [Usage](#usage) 
-* [Credits](#credits) 
+* [Collaborators](#collaborators) 
 * [License](#license) 
 * [Contributing](#contributing) 
 * [Tests](#tests) 
@@ -20,15 +20,16 @@ Yakto Cat can teach you karate. But don't anger him!
 2.  Be aware and alert  
 3.  Eat plenty of protein. i.e. ![cheeseburger](/images/cheeseburger.jpg) 
  
-## License 
-Yakto Cat is [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) licensed 
-## Contributing 
+## Collaborators 
 * Nick Romano [github.com/nicholas-romano](https://github.com/nicholas-romano)
 * Samuel Guevara [github.com/samuelguevara98](https://github.com/samuelguevara98)
   
 * Youtube How-To fight karate videos [www.youtube.com/watch?v=uB0fLc-wb5Y](https://www.youtube.com/watch?v=uB0fLc-wb5Y)
 * Google: [www.google.com](https://www.google.com)
   
+## License 
+Yakto Cat is [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0.html) licensed 
+## Contributing 
 * Attribute any third party assets 
 * test your code on all major browsers. 
  
