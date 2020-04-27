@@ -162,7 +162,7 @@ function createFileContent(github_username, project_title, project_image, descri
         let convertedImages = convertImages(usage);
         let convertedLinks = createLinks(convertedImages);
         let stepList = createOrderedList(convertedLinks);
-        fileContent += `${stepList} \r\n`;
+        fileContent += `${stepList} \r\r\n`;
     }
 
     if (collaborators != "") {
@@ -202,7 +202,7 @@ function createFileContent(github_username, project_title, project_image, descri
         let convertedImages = convertImages(tests);
         let convertedLinks = createLinks(convertedImages);
         let stepList = createOrderedList(convertedLinks); 
-        fileContent += `${stepList} \r\n`;
+        fileContent += `${stepList} \r\r\n`;
     }
 
     github_username.trim();
